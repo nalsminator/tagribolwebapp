@@ -6,5 +6,4 @@ export interface ProductoI{
     categoria: string;
     envasedesc: string;
     envaseimg: string;
-    envase: string;
 }

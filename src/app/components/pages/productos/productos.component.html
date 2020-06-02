@@ -15,7 +15,7 @@
                         <mat-card-title>{{ producto.nombre }}</mat-card-title>
                     </div>
                     <div class="row">
-                        <mat-card-subtitle>{{ producto.categoria }}</mat-card-subtitle>
+                        <br><!--<mat-card-subtitle>{{ producto.categoria }}</mat-card-subtitle>-->
                     </div>
                 </div>
                 <div class="row">
@@ -23,7 +23,7 @@
                 </div>
                 <mat-card-actions>
                     <div class="row">
-                        <button mat-button class="btn btn-success" (click)="openDialog(producto)" >Ver producto</button>
+                        <button mat-button class="btn btn-success" [routerLink]="['/show-prod', producto.id]" >Ver producto</button>
                     </div>
                 </mat-card-actions>
             </div>

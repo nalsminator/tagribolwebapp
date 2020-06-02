@@ -1,0 +1,69 @@
+<div class="container">
+    <form class="border-class" [formGroup]="cotProdForm" (ngSubmit)="guardarCotizacion(cotProdForm.value)">
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <div class="card-header">
+                    <h1 class="card-tittle">Cotizar producto</h1>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="nombre">Producto</label><br>
+                  <input class="form-control" disabled formControlName="nombre">
+                </div>
+              </div>
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label for="envase">Envase</label>
+                      <select formControlName="envasedesc" ngbDropDown class="dropdown select-css">
+                          <option class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{ selectedEnvase }}
+                          </option>
+                          <option class="dropdown-item" ngbDropdownItem *ngFor="let des of producto.envasedesc" [ngClass]="des" (click)="CambiarEnvaseSelecccionado(des)">
+                              {{ des }}
+                          </option>
+                      </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label for="cantidad">Cantidad</label>
+                      <input 
+                      type="text" 
+                      required  
+                      class="form-control" 
+                      id="cantidad" 
+                      placeholder="Cantidad de cajas"
+                      formControlName="cantidad" >
+                  </div>
+              </div>
+              <div class="form-group">
+                <label for="empresa">Empresa / Razon Social</label>
+                <input formControlName="razonsocial" type="text" class="form-control" id="empresa">
+              </div>
+              <div class="form-group">
+                  <label for="email">Correo electronico (e-mail)</label>
+                  <input formControlName="email" type="text" class="form-control" id="email">
+              </div>
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label for="telf">Teléfono fijo / Celular</label>
+                      <input formControlName="telefono" type="text" class="form-control" id="telf">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="interno">Interno #</label>
+                    <input formControlName="interno" type="text" class="form-control" id="interno">
+                  </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                   <!--<a class="btn btn-outline-success" href="https://api.whatsapp.com/send?phone=59162068604&text=">Cotizar via WhatsApp</a>-->
+                   <input type="submit" class="btn btn-outline-success" value="Cotizar" [mat-dialog-close]="true">
+                </div>
+                <div class="form-group col-md-6 text-right">
+                  <a class="btn btn-danger" href="/productos">Cancelar</a>
+                </div>
+              </div>
+        </div>
+      </form>
+</div>
