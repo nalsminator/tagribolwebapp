@@ -4,6 +4,7 @@ import { ProductoI } from "src/app/shared/models/producto.interface";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { CotizacionI } from "src/app/shared/models/cotizacion.interface";
 import { CotizarService } from "src/app/components/pages/productos/cotizar/cotizar.service";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cotizar',
@@ -51,7 +52,22 @@ export class CotizarComponent implements OnInit {
   }
 
   guardarCotizacion(data: CotizacionI){
-    this.cotSvc.saveCotizacion(data);
+    Swal.fire({
+      title: '¿Enviar cotización?',
+      text: 'No puedes deshacer esta acción',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, enviar'
+    }).then(result => {
+      if (result.value) {
+        this.cotSvc.saveCotizacion(data).then(()=>{
+          Swal.fire('Cotización enviada', 'Recibira su cotización en la brevedad', 'success');
+        }).catch(()=>{
+          Swal.fire('Error', 'Error al enviar la cotización', 'error');
+        });
+      }
+    });
   }
-
 }

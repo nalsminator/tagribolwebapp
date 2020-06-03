@@ -1,1 +1,108 @@
-<p>servicios works!</p>
+<div class="container">
+    <div class="row">
+        <img class="rounded-lg" src="https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/solicitarservicio.png?alt=media&token=ea8ee1bd-dfc7-4176-a46c-e62dd30fecf0">
+    </div>
+    <div class="row">
+        <br>
+    </div>
+    <form>
+    <!--DATOS EMPRESA-->
+        <div class="container border border-success rounded">
+            <div class="row"><br></div>
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <label>Empresa</label>
+                    <input type="text" class="form-control" placeholder="Nombre de la empresa">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-9">
+                    <label>Contacto</label>
+                    <input type="text" class="form-control" placeholder="Nombre del contacto">
+                </div>
+            <div class="col-md-3">
+                <label>Teléfono / Celular</label>
+                <input type="text" class="form-control">
+            </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <label>Correo electronico (e-mail)</label>
+                    <input type="text" class="form-control" placeholder="Ejemplo: contacto@empresa.com">
+                </div>
+            </div>
+        </div>
+        <div class="row"><br></div>
+        <!--DATOS PRODUCTO-->
+        <div class="container border border-warning rounded">
+            <div class="row"><br></div>
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <label>Producto</label>
+                    <input type="text" class="form-control" placeholder="Nombre del producto">
+                </div>
+                <div class="col-md-4">
+                    <label>Grupo</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-2">
+                    <label>Cantidad</label>
+                    <input type="number" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    <label>Unidad</label>
+                    <select class="dropdown select-css">
+                        <option *ngFor="let unidad of unidades">{{ unidad }}</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>Tipo de trabajo</label>
+                    <select class="dropdown select-css">
+                        <option *ngFor="let tt of tipotrabajo">{{ tt }}</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>Tipo de envase</label>
+                    <select class="dropdown select-css">
+                        <option *ngFor="let te of tipoenvase">{{ te }}</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>Color</label>
+                    <select class="dropdown select-css">
+                        <option *ngFor="let cc of color">{{ cc }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    <label>Medida envase</label>
+                    <select class="dropdown select-css">
+                        <option *ngFor="let kl of kiloslitros">{{ kl }}</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>Color de caja</label>
+                    <select class="dropdown select-css">
+                        <option *ngFor="let cj of colorcaja">{{ cj }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row"><br></div>
+        <div class="container border border-info rounded">
+            <div class="row text-center"><br></div>
+            <div class="form-group row">
+                <div class="col-md-4">
+                    <label>Nº de lote</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label>Fecha de fabricación</label>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
