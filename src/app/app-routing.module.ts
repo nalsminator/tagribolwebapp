@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContainerAppComponent } from "../app/components/pages/container-app/container-app.component";
 import { ShowProdComponent } from './components/pages/productos/show-prod/show-prod.component';
 
-
 const routes: Routes = [
   {
     path: '', component: ContainerAppComponent,

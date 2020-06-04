@@ -1,34 +1,36 @@
 <div class="container">
     <div class="row">
-        <img class="rounded-lg" src="https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/solicitarservicio.png?alt=media&token=ea8ee1bd-dfc7-4176-a46c-e62dd30fecf0">
+        <img class="rounded-lg center" src="https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/solicitarservicio.png?alt=media&token=ea8ee1bd-dfc7-4176-a46c-e62dd30fecf0">
     </div>
     <div class="row">
         <br>
     </div>
-    <form>
+    <form [formGroup]="servForm" (ngSubmit)="guardarServicio(servForm.value)">
     <!--DATOS EMPRESA-->
         <div class="container border border-success rounded">
+            <div class="row"><br></div>
+            <h1>Datos de la Empresa</h1>
             <div class="row"><br></div>
             <div class="form-group row">
                 <div class="col-md-12">
                     <label>Empresa</label>
-                    <input type="text" class="form-control" placeholder="Nombre de la empresa">
+                    <input formControlName="nombreempresa" type="text" class="form-control" placeholder="Nombre de la empresa">
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-md-9">
                     <label>Contacto</label>
-                    <input type="text" class="form-control" placeholder="Nombre del contacto">
+                    <input formControlName="nombrecontacto" type="text" class="form-control" placeholder="Nombre del contacto">
                 </div>
             <div class="col-md-3">
                 <label>Teléfono / Celular</label>
-                <input type="text" class="form-control">
+                <input formControlName="telefono" type="text" class="form-control">
             </div>
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
                     <label>Correo electronico (e-mail)</label>
-                    <input type="text" class="form-control" placeholder="Ejemplo: contacto@empresa.com">
+                    <input formControlName="email" type="text" class="form-control" placeholder="Ejemplo: contacto@empresa.com">
                 </div>
             </div>
         </div>
@@ -36,42 +38,44 @@
         <!--DATOS PRODUCTO-->
         <div class="container border border-warning rounded">
             <div class="row"><br></div>
+            <h1>Datos del Producto</h1>
+            <div class="row"><br></div>
             <div class="form-group row">
                 <div class="col-md-6">
                     <label>Producto</label>
-                    <input type="text" class="form-control" placeholder="Nombre del producto">
+                    <input formControlName="nombreproducto" type="text" class="form-control" placeholder="Nombre del producto">
                 </div>
                 <div class="col-md-4">
                     <label>Grupo</label>
-                    <input type="text" class="form-control">
+                    <input formControlName="grupo" type="text" class="form-control">
                 </div>
                 <div class="col-md-2">
                     <label>Cantidad</label>
-                    <input type="number" class="form-control">
+                    <input formControlName="cantidad" type="number" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-md-3">
                     <label>Unidad</label>
-                    <select class="dropdown select-css">
+                    <select formControlName="unidad" class="dropdown custom-select">
                         <option *ngFor="let unidad of unidades">{{ unidad }}</option>
                     </select>
                 </div>
                 <div class="col-md-3">
                     <label>Tipo de trabajo</label>
-                    <select class="dropdown select-css">
+                    <select formControlName="tipotrabajo" class="dropdown custom-select">
                         <option *ngFor="let tt of tipotrabajo">{{ tt }}</option>
                     </select>
                 </div>
                 <div class="col-md-3">
                     <label>Tipo de envase</label>
-                    <select class="dropdown select-css">
+                    <select formControlName="tipoenvase" class="dropdown custom-select">
                         <option *ngFor="let te of tipoenvase">{{ te }}</option>
                     </select>
                 </div>
                 <div class="col-md-3">
                     <label>Color</label>
-                    <select class="dropdown select-css">
+                    <select formControlName="color" class="dropdown custom-select">
                         <option *ngFor="let cc of color">{{ cc }}</option>
                     </select>
                 </div>
@@ -79,28 +83,41 @@
             <div class="form-group row">
                 <div class="col-md-3">
                     <label>Medida envase</label>
-                    <select class="dropdown select-css">
+                    <select formControlName="medidaenvase" class="dropdown custom-select">
                         <option *ngFor="let kl of kiloslitros">{{ kl }}</option>
                     </select>
                 </div>
                 <div class="col-md-3">
                     <label>Color de caja</label>
-                    <select class="dropdown select-css">
+                    <select formControlName="colorcaja" class="dropdown custom-select">
                         <option *ngFor="let cj of colorcaja">{{ cj }}</option>
                     </select>
                 </div>
             </div>
-        </div>
-        <div class="row"><br></div>
-        <div class="container border border-info rounded">
-            <div class="row text-center"><br></div>
             <div class="form-group row">
                 <div class="col-md-4">
                     <label>Nº de lote</label>
-                    <input type="text" class="form-control">
+                    <input formControlName="ndelote" type="text" class="form-control">
                 </div>
                 <div class="col-md-4">
                     <label>Fecha de fabricación</label>
+                    <input formControlName="fechafabricacion" type="date" class="form-control" data-date-format="DD MMMM YYYY">
+                </div>
+                <div class="col-md-4">
+                    <label>Fecha de vencimiento</label>
+                    <input formControlName="fechavencimiento" type="date" class="form-control">
+                    <br>
+                </div>
+                <div class="col-md-12">
+                    <label>Otras indicaciones</label>
+                    <input type="text" formControlName="otros" class="form-control">
+                  </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <button class="btn btn-success" type="submit" >Enviar solicitud de servicio</button> 
+                    &nbsp;&nbsp;&nbsp;&nbsp; 
+                    <button type="button" class="btn btn-danger" (click)="salir()">Cancelar</button>
                 </div>
             </div>
         </div>
