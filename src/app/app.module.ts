@@ -14,6 +14,8 @@ import { AngularFireStorageModule, BUCKET } from "@angular/fire/storage";
 import { AngularFireModule } from "@angular/fire";
 import { environment } from 'src/environments/environment';
 
+import { AngularFireAuthModule } from "@angular/fire/auth";
+
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -24,6 +26,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
 
 import { FormsModule } from '@angular/forms';
 
@@ -50,7 +53,9 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    AngularFireAuthModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],

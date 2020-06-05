@@ -11,7 +11,9 @@ const routes: Routes = [
       { path: 'nosotros', loadChildren: () => import('./components/pages/nosotros/nosotros.module').then(m => m.NosotrosModule) }, 
       { path: 'productos', loadChildren: () => import('./components/pages/productos/productos.module').then(m => m.ProductosModule) }, 
       { path: 'servicios', loadChildren: () => import('./components/pages/servicios/servicios.module').then(m => m.ServiciosModule) }, 
-      { path: 'almacenaje', loadChildren: () => import('./components/pages/almacenaje/almacenaje.module').then(m => m.AlmacenajeModule) },    
+      { path: 'almacenaje', loadChildren: () => import('./components/pages/almacenaje/almacenaje.module').then(m => m.AlmacenajeModule) }, 
+      { path: 'admin', loadChildren: () => import('./components/pages/admin/admin.module').then(m => m.AdminModule) },
+      { path: 'login', loadChildren: () => import('./components/pages/login/login.module').then(m => m.LoginModule) },   
       { path: 'show-prod/:id', component: ShowProdComponent },
       { path: '', redirectTo: '/home', pathMatch: 'full' }
     ]

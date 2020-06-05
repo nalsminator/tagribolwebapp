@@ -5,6 +5,25 @@
         <a mat-button routerLink="/productos" routerLinkActive="active">Productos</a>&nbsp;
         <a mat-button routerLink="/servicios" routerLinkActive="active">Servicios</a>&nbsp;
         <a mat-button routerLink="/almacenaje" routerLinkActive="active">Almacenaje</a>&nbsp;
-        <a mat-button routerLink="/contacto" routerLinkActive="active">Contacto</a>
+        <a mat-button routerLink="/contacto" routerLinkActive="active">Contacto</a>&nbsp;
+
+        <a routerLink="/admin" mat-button routerLinkActive="active" *ngIf="loginSvc.userData | async">
+            Admin
+        </a>
+
+        <span *ngIf="loginSvc.userData | async">
+            &nbsp;
+        </span>
+
+        <a mat-button routerLink="/" routerLinkActive="active" *ngIf="loginSvc.userData | async; else showLogin" (click)="onLogOut()">
+            Cerrar sesión
+        </a>
+       
+        <ng-template #showLogin>
+            <a mat-button routerLinkActive="active" routerLink="/login" routerLinkActivate="active">
+                Login
+            </a>
+        </ng-template>
+
     </mat-toolbar-row>
 </mat-toolbar>
