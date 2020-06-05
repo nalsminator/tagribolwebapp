@@ -17,17 +17,24 @@ export class CotizarComponent implements OnInit {
 
   selectedEnvase: string = "Elija un envase";
 
+  private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  private numberPattern: any = /^-?(0|[1-9]\d*)?$/;
+
   constructor(private prodSvc: ProductosService, private cotSvc: CotizarService) { }
+
+  getformControl(name){
+    return this.cotProdForm.get(name);
+  }
 
   public cotProdForm = new FormGroup({
     id: new FormControl('', Validators.required),
-    nombre: new FormControl('', Validators.required),
+    nombre: new FormControl('',  [Validators.required, Validators.minLength(5)]),
     envasedesc: new FormControl('', Validators.required),
-    cantidad: new FormControl('', Validators.required),
-    razonsocial: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-    telefono: new FormControl('', Validators.required),
-    interno: new FormControl('')
+    cantidad: new FormControl('', [Validators.required, Validators.minLength(1), Validators.pattern(this.numberPattern)]),
+    razonsocial: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    email: new FormControl('', [Validators.minLength(10), Validators.pattern(this.emailPattern)]),
+    telefono: new FormControl('', [Validators.required, Validators.minLength(7), Validators.pattern(this.numberPattern)]),
+    interno: new FormControl('', [Validators.minLength(1), Validators.pattern(this.numberPattern)])
   });
 
   ngOnInit(): void {
@@ -62,11 +69,16 @@ export class CotizarComponent implements OnInit {
       confirmButtonText: 'Si, enviar'
     }).then(result => {
       if (result.value) {
-        this.cotSvc.saveCotizacion(data).then(()=>{
-          Swal.fire('Cotización enviada', 'Recibira su cotización en la brevedad', 'success');
-        }).catch(()=>{
-          Swal.fire('Error', 'Error al enviar la cotización', 'error');
-        });
+
+        if (this.cotProdForm.valid) {
+          this.cotSvc.saveCotizacion(data).then(()=>{
+            Swal.fire('Cotización enviada', 'Recibira su cotización en la brevedad', 'success');
+          }).catch(()=>{
+            Swal.fire('Error', 'Error al enviar la cotización', 'error');
+          });
+        } else {
+          Swal.fire('Campos requeridos', 'Los campos con un "*" al costado, son campos obligatorios', 'info');
+        }
       }
     });
   }

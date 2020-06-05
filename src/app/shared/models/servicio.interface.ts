@@ -3,7 +3,7 @@ export interface ServicioI{
     nombreempresa: string,
     nombrecontacto: string,
     telefono: string,
-    email: string,
+    email?: string,
     nombreproducto: string,
     grupo: string,
     cantidad: number,
@@ -16,5 +16,5 @@ export interface ServicioI{
     ndelote: string,
     fechafabricacion: Date,
     fechavencimiento: Date,
-    otros: string
+    otros?: string
 }
