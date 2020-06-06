@@ -1,0 +1,57 @@
+<div class="container">
+    <form class="border-class" [formGroup]="cotProdForm">
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <div class="card-header">
+                    <h1 class="card-tittle">Solicitud de cotización</h1>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label>Producto</label><br>
+                    <input class="form-control" disabled formControlName="nombre">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Envase</label>
+                    <input class="form-control" disabled formControlName="envasedesc">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Cantidad</label>
+                    <input class="form-control" disabled formControlName="cantidad">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Empresa / Razon Social</label>
+                <input formControlName="razonsocial" readonly class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="email">Correo electronico (e-mail)</label>
+                <input formControlName="email" readonly class="form-control">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Teléfono fijo / Celular</label>
+                    <a target="_blank" href="https://api.whatsapp.com/send?phone={{ cotProdForm.get('telefono').value }}">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/icons8-whatsapp-48.png?alt=media&token=e3292b5a-6873-4d47-887c-31a772398dac" 
+                        width="24px" 
+                        height="24px">
+                    </a>
+                    <input formControlName="telefono" readonly class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Interno #</label>
+                    <input formControlName="interno" readonly class="form-control">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <button mat-raised-button matDialogClose type="button" class="btn btn-primary" value="Cerrar">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

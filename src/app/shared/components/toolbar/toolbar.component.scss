@@ -1,16 +1,17 @@
-mat-toolbar {
-    color: black;
-    border-radius: 8px;
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/ngblog-b12be.appspot.com/o/images%2FWhatsApp%20Image%202020-05-27%20at%2014.34.23.jpeg?alt=media&token=6e33f661-5a80-467a-a6d3-0f843fea59ce');
+nav {
+    width: 100%;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/toolbar.jpg?alt=media&token=557708ff-12a2-4741-89a1-8a3f0006d84a');
 }
 
 a{
-    font-size: larger;
+    font-size: xx-large;    
+    color: black;
+    border-radius: 8px;
     background-color: rgba(253, 253, 253, 0.493);
 }
 
 a:hover {
-    color: black;
+    color: white;
     background-color: rgba(218, 165, 32, 0.596);
 }
 

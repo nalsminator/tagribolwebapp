@@ -9,4 +9,4 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     MatFormFieldModule
   ]
 })
-export class CotizarModule { }
+export class DisplayservicioModule { }

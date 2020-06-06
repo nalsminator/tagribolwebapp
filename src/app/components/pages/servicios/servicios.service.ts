@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 import { ServicioI } from "src/app/shared/models/servicio.interface";
+import { Observable } from 'rxjs';
+import { map, finalize } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +16,20 @@ export class ServiciosService {
 
   constructor(private afs: AngularFirestore) { 
     this.servicioCollection = afs.collection<ServicioI>('servicio');
+  }
+
+  public getAllServicios():Observable<ServicioI[]>{
+    return this.servicioCollection
+      .snapshotChanges()
+      .pipe(
+        map(actions => 
+          actions.map(a => {
+            const data = a.payload.doc.data() as ServicioI;
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          })
+        )
+      );
   }
 
   public saveServicio(serv: ServicioI){

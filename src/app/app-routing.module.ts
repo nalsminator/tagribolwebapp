@@ -12,12 +12,13 @@ const routes: Routes = [
       { path: 'productos', loadChildren: () => import('./components/pages/productos/productos.module').then(m => m.ProductosModule) }, 
       { path: 'servicios', loadChildren: () => import('./components/pages/servicios/servicios.module').then(m => m.ServiciosModule) }, 
       { path: 'almacenaje', loadChildren: () => import('./components/pages/almacenaje/almacenaje.module').then(m => m.AlmacenajeModule) }, 
-      { path: 'admin', loadChildren: () => import('./components/pages/admin/admin.module').then(m => m.AdminModule) },
+      { path: 'contacto', loadChildren: () => import('./components/pages/contacto/contacto.module').then(m => m.ContactoModule) },
       { path: 'login', loadChildren: () => import('./components/pages/login/login.module').then(m => m.LoginModule) },   
       { path: 'show-prod/:id', component: ShowProdComponent },
       { path: '', redirectTo: '/home', pathMatch: 'full' }
     ]
   },
+  { path: 'admin', loadChildren: () => import('./components/pages/admin/admin.module').then(m => m.AdminModule) },
  ];
 
 @NgModule({

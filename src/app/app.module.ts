@@ -29,6 +29,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 
 import { FormsModule } from '@angular/forms';
+import { DisplaycotizacionComponent } from "src/app/components/pages/admin/displaycotizacion/displaycotizacion.component";
+import { DisplayservicioComponent } from "src/app/components/pages/admin/displayservicio/displayservicio.component";
+import { ModalcotizarComponent } from './shared/components/modalcotizar/modalcotizar.component';
+import { ModalservicioComponent } from './shared/components/modalservicio/modalservicio.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import { FormsModule } from '@angular/forms';
     ToolbarComponent,
     ContainerAppComponent,
     ModalComponent,
-    CotizarComponent
+    CotizarComponent,
+    ModalcotizarComponent,
+    DisplaycotizacionComponent,
+    ModalservicioComponent,
+    DisplayservicioComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -60,6 +68,6 @@ import { FormsModule } from '@angular/forms';
   providers: [],
   bootstrap: [AppComponent],
   exports: [NgbModule],
-  entryComponents: [ModalComponent]
+  entryComponents: [ModalComponent, ModalcotizarComponent, ModalservicioComponent]
 })
 export class AppModule { }

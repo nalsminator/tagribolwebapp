@@ -19,6 +19,20 @@ export class CotizarService {
     this.cotizacionCollection = afs.collection<CotizacionI>('cotizacion');
   }
 
+  public getAllCotizaciones():Observable<CotizacionI[]>{
+    return this.cotizacionCollection
+      .snapshotChanges()
+      .pipe(
+        map(actions => 
+          actions.map(a => {
+            const data = a.payload.doc.data() as CotizacionI;
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          })
+        )
+      );
+  }
+
   public saveCotizacion(cot: CotizacionI){
     const cotObj = {
       fecha: this.fechactual,
