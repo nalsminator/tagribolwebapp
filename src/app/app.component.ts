@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'tagribolwebapp';
+  title = 'Todo Agricola Ltda.';
+
+  public constructor(private titleService: Title ) { }
+
+  public setTitle() {
+    this.titleService.setTitle('Todo Agricola Ltda.');
+  }
+
+  ngOnInit(): void {
+    this.setTitle();
+  }
 }

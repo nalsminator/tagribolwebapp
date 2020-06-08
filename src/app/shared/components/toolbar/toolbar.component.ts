@@ -10,12 +10,22 @@ export class ToolbarComponent implements OnInit {
 
   constructor(public loginSvc: LoginService) { }
 
+  
   ngOnInit(): void {
    
   }
 
   onLogOut(): void {
     this.loginSvc.logout();
+  }
+
+  public myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
   }
 
 }

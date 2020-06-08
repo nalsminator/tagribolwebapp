@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
     .then(res => {
       console.log('Succesfully', res);
       this.route.navigate(['/']);
-      window.location.href = '/admin';
     })
     .catch(err => console.log('Error', err));
   }

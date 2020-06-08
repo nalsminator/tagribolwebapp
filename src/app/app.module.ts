@@ -33,6 +33,7 @@ import { DisplaycotizacionComponent } from "src/app/components/pages/admin/displ
 import { DisplayservicioComponent } from "src/app/components/pages/admin/displayservicio/displayservicio.component";
 import { ModalcotizarComponent } from './shared/components/modalcotizar/modalcotizar.component';
 import { ModalservicioComponent } from './shared/components/modalservicio/modalservicio.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ModalservicioComponent } from './shared/components/modalservicio/modals
     ModalcotizarComponent,
     DisplaycotizacionComponent,
     ModalservicioComponent,
-    DisplayservicioComponent
+    DisplayservicioComponent,
+    FooterComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

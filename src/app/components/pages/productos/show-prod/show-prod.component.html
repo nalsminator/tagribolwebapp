@@ -1,5 +1,5 @@
 <div class="container" *ngIf="producto$ | async as producto; else loading">
-  <div class="card">
+<!--   <div class="card">
     <div class="card-header">
       <div class="row row-cols-5">
         <div class="col">
@@ -32,6 +32,40 @@
           <div class="alert alert-success text-center" role="alert">
             <h2>{{ des }}</h2>
           </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="card">
+    <div class="card-header">
+      <h1 class="card-title">{{ producto.nombre }}</h1>
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{ producto.descripcion }}</p>
+      <div class="row">
+        <div class="col-md-9">
+          <img class="card-img-top" src="{{ producto.imgenvases }}">
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+            <div class="card-header">
+              Caja / Envase
+            </div>
+            <ul class="list-group list-group-flush" *ngFor="let des of producto.envasedesc" [ngClass]="des">
+              <li class="list-group-item">{{ des }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-md-2">
+           <a class="btn btn-primary btn-lg" (click)="onCotizarProducto(producto)">Cotizar</a>
+        </div>
+        <div class="col-md-3">
+          <a class="btn btn-secondary btn-lg" href="/productos">Volver a productos</a>
         </div>
       </div>
     </div>

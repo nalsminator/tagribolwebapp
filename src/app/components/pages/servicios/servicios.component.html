@@ -1,13 +1,10 @@
 <div class="container">
-    <div class="row">
-        <img class="rounded-lg center" src="https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/solicitarservicio.png?alt=media&token=ea8ee1bd-dfc7-4176-a46c-e62dd30fecf0">
-    </div>
-    <div class="row">
-        <br>
+    <div class="row" style="margin: 5px;">
+        <img class="img responsive" src="https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/solicitarservicio.png?alt=media&token=ea8ee1bd-dfc7-4176-a46c-e62dd30fecf0">
     </div>
     <form [formGroup]="servForm" (ngSubmit)="guardarServicio(servForm.value)">
     <!--DATOS EMPRESA-->
-        <div class="container border border-success rounded">
+        <div class="container border border-success rounded" style="margin: 5px;">
             <div class="row"><br></div>
             <h1>Datos de la Empresa</h1>
             <div class="row"><br></div>
@@ -66,9 +63,8 @@
                 </div>
             </div>
         </div>
-        <div class="row"><br></div>
         <!--DATOS PRODUCTO-->
-        <div class="container border border-warning rounded">
+        <div class="container border border-warning rounded" style="margin: 5px;">
             <div class="row"><br></div>
             <h1>Datos del Producto</h1>
             <div class="row"><br></div>
