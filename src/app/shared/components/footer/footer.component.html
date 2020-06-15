@@ -14,7 +14,9 @@
           <li><a class="text-muted" routerLink="/servicios" routerLinkActive="active">Servicios</a></li>
           <li><a class="text-muted" routerLink="/almacenaje" routerLinkActive="active">Almacenaje</a></li>
           <li><a class="text-muted" routerLink="/contacto" routerLinkActive="active">Contacto</a></li>
-          <li><a class="text-muted" routerLink="/login" routerLinkActive="active">Login</a></li>
+          <!-- <li><a class="text-muted" routerLink="/login" routerLinkActive="active">Login</a></li> -->
+          <li><a class="text-muted" routerLink="/admin" routerLinkActive="active" *ngIf="loginSvc.userData | async">Admin</a></li>
+          <li><a class="text-muted" routerLink="/" *ngIf="loginSvc.userData | async; else showLogin" (click)="onLogOut()">Cerrar sesión</a></li>
         </ul>
       </div>
       <div class="col-6 col-md">
@@ -41,3 +43,7 @@
       </div>
     </div>
   </footer>
+
+  <ng-template #showLogin>
+    <a class="text-muted" routerLinkActive="active" routerLink="/login" routerLinkActivate="active">Login</a>
+  </ng-template>

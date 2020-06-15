@@ -9,10 +9,8 @@ import { LoginService } from "src/app/components/pages/login/login.service";
 export class ToolbarComponent implements OnInit {
 
   constructor(public loginSvc: LoginService) { }
-
   
   ngOnInit(): void {
-   
   }
 
   onLogOut(): void {
@@ -24,8 +22,9 @@ export class ToolbarComponent implements OnInit {
     if (x.className === "topnav") {
       x.className += " responsive";
     } else {
-      x.className = "topnav";
+      if (x.className === "topnav responsive") {
+         x.className = "topnav";
+      }
     }
   }
-
 }

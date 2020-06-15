@@ -15,8 +15,6 @@ export class CotizarComponent implements OnInit {
 
   @Input() producto: ProductoI;
 
-  selectedEnvase: string = "Elija un envase";
-
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   private numberPattern: any = /^-?(0|[1-9]\d*)?$/;
 
@@ -27,8 +25,7 @@ export class CotizarComponent implements OnInit {
   }
 
   public cotProdForm = new FormGroup({
-    id: new FormControl('', Validators.required),
-    nombre: new FormControl('',  [Validators.required, Validators.minLength(5)]),
+    nombre: new FormControl(''),
     envasedesc: new FormControl('', Validators.required),
     cantidad: new FormControl('', [Validators.required, Validators.minLength(1), Validators.pattern(this.numberPattern)]),
     razonsocial: new FormControl('', [Validators.required, Validators.minLength(5)]),
@@ -52,10 +49,6 @@ export class CotizarComponent implements OnInit {
       telefono: '',
       interno: ''
     });
-  }
-
-  CambiarEnvaseSelecccionado(newSortOrder: string) { 
-    this.selectedEnvase = newSortOrder;
   }
 
   guardarCotizacion(data: CotizacionI){

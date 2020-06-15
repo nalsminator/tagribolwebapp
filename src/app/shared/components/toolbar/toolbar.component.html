@@ -3,46 +3,44 @@
         <img src="https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/logo.png?alt=media&token=79a57efd-6953-4c72-8ec5-3e1c9207a6d3" 
         alt="Logo" style="width:120px;"><br>
     </a>
-    <a mat-button routerLink="/nosotros" routerLinkActive="active">
+    <a mat-button routerLink="/nosotros" routerLinkActive="active" (click)="myFunction()">
         <img src="https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/toolbar%2Fpregunta.png?alt=media&token=63ee1ba6-56de-494a-9d83-6306a4fea53c"
         style="width: 50px;"><br>
         Nosotros
     </a>&nbsp;
-    <a mat-button routerLink="/productos" routerLinkActive="active">
+    <a mat-button routerLink="/productos" routerLinkActive="active" (click)="myFunction()">
         <img src="https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/toolbar%2Fmatraz.png?alt=media&token=5c497185-edf0-42bd-99c4-5afdf4a79f19"
         style="width: 50px;"><br>
         Productos
     </a>&nbsp;
-    <a mat-button routerLink="/servicios" routerLinkActive="active">
+    <a mat-button routerLink="/servicios" routerLinkActive="active" (click)="myFunction()">
         <img src="https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/toolbar%2Forden.png?alt=media&token=db535aa4-e7b9-4e9a-b50b-f178b5bdd2cc"
         style="width: 50px;"><br>
         Servicios
     </a>&nbsp;
-    <a mat-button routerLink="/almacenaje" routerLinkActive="active">
+    <a mat-button routerLink="/almacenaje" routerLinkActive="active" (click)="myFunction()">
         <img src="https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/toolbar%2Ffabrica.png?alt=media&token=96d9dbe3-79e7-4b6c-9173-d8be01dfb187"
         style="width: 50px;"><br>
         Almacenaje
     </a>&nbsp;
-    <a mat-button routerLink="/contacto" routerLinkActive="active">
+    <a mat-button routerLink="/contacto" routerLinkActive="active" (click)="myFunction()">
         <img src="https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/toolbar%2Fcontacto.png?alt=media&token=dd75c1d6-23ce-43b3-8e3c-5693032848d9"
         style="width: 50px;"><br>
         Contacto
     </a>&nbsp;
 
-    <a routerLink="/admin" mat-button routerLinkActive="active" *ngIf="loginSvc.userData | async">
+    <a routerLink="/admin" mat-button routerLinkActive="active" *ngIf="loginSvc.userData | async; else showLogin" (click)="myFunction()">
+        <img src="https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/toolbar%2Fsettings.png?alt=media&token=80037e0c-960d-4a66-b5f5-ef4453e73228"
+        style="width: 50px;"><br>
         Admin
     </a>
 
     <span *ngIf="loginSvc.userData | async">
         &nbsp;
     </span>
-
-    <a mat-button routerLink="/" routerLinkActive="active" *ngIf="loginSvc.userData | async; else showLogin" (click)="onLogOut()">
-        Cerrar sesión
-    </a>
     
     <ng-template #showLogin>
-        <a mat-button routerLinkActive="active" routerLink="/login" routerLinkActivate="active">
+        <a mat-button routerLinkActive="active" routerLink="/login" routerLinkActivate="active"c>
             <img src="https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/toolbar%2Finiciar-sesion.png?alt=media&token=46e6a8e2-a77b-4b35-a781-1728a3b2e8f8"
             style="width: 50px;"><br>
             Login

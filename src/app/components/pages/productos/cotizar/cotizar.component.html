@@ -24,10 +24,10 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="envase">Envase *</label>
+                    <label>Envase *</label>
                     <select formControlName="envasedesc" class="custom-select">
                         <option value="" disabled>Elija un envase</option>
-                        <option *ngFor="let des of producto.envasedesc" [ngClass]="des"> {{ des }}</option>
+                        <option *ngFor="let des of producto.envasedesc"> {{ des }}</option>
                     </select>
                     <div *ngIf="getformControl('envasedesc').invalid && (getformControl('envasedesc').dirty || getformControl('envasedesc').touched)">
                         <div class="container-error-message" *ngIf="getformControl('envasedesc').errors.required">
@@ -106,8 +106,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <!--<a class="btn btn-outline-success" href="https://api.whatsapp.com/send?phone=59162068604&text=">Cotizar via WhatsApp</a>-->
-                    <input type="submit" class="btn btn-success" value="Enviar cotización">
+                    <input type="submit" mat-raised-button matDialogClose class="btn btn-success" value="Enviar cotización">
                 </div>
                 <div class="col-md-6">
                 <a class="btn btn-danger" mat-raised-button matDialogClose>Cancelar</a>
