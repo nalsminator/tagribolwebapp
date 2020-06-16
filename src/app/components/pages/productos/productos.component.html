@@ -1,25 +1,19 @@
-<div class="container">
-    <div class="row" style="margin: 10px;">
-        <img class="img responsive" src="https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/nuestrosproductos1.png?alt=media&token=cb72be21-7c7d-44d0-af7d-1b4e4910d548">
-    </div>
-    <div class="container">
-        <div class="row" *ngIf="productos$ | async as producto; else loading">
-            <div class="col-md-4" *ngFor="let producto of producto">
-                <div class="card" style="width: 18rem;">
-                    <img class="imgcard" src="{{ producto.imgurl }}" class="card-img-top rounded imgcard">
-                    <div class="card-body">
-                      <h2 class="card-title">{{ producto.nombre }}</h2>
-                      <p class="card-text">{{ producto.categoria }}</p>
-                      <a class="btn btn-primary" [routerLink]="['/show-prod', producto.id]">Ver producto</a>
-                    </div>
-                </div>
-                <br>
+<img class="img responsive" src="https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/nuestrosproductos1.png?alt=media&token=cb72be21-7c7d-44d0-af7d-1b4e4910d548">
+<div class="row" *ngIf="productos$ | async as producto; else loading">
+    <div class="col-md-4" *ngFor="let producto of producto">
+        <div class="card" style="width: 18rem;">
+            <img class="imgcard" src="{{ producto.imgurl }}" class="card-img-top rounded imgcard">
+            <div class="card-body">
+                <h2 class="card-title">{{ producto.nombre }}</h2>
+                <p class="card-text">{{ producto.categoria }}</p>
+                <a class="btn btn-primary" [routerLink]="['/show-prod', producto.id]">Ver producto</a>
             </div>
         </div>
+        <br>
     </div>
 </div>
 <ng-template #loading>
     <div class="spinner-border" role="status">
-      <span class="sr-only">Loading...</span>
+        <span class="sr-only">Loading...</span>
     </div>
 </ng-template>

@@ -8,6 +8,8 @@ import { LoginService } from "src/app/components/pages/login/login.service";
 })
 export class ToolbarComponent implements OnInit {
 
+  isCollapsed = true;
+
   constructor(public loginSvc: LoginService) { }
   
   ngOnInit(): void {
@@ -15,6 +17,10 @@ export class ToolbarComponent implements OnInit {
 
   onLogOut(): void {
     this.loginSvc.logout();
+  }
+
+  public Colapsar(){
+    this.isCollapsed = true;
   }
 
   public myFunction() {

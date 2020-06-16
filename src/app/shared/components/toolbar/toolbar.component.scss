@@ -1,4 +1,4 @@
-a{
+/* a{
     font-size: xx-large;    
     color: gold;
     border-radius: 8px;
@@ -15,7 +15,6 @@ a:link {
     overflow: hidden;
   }
   
-  /* Style the links inside the navigation bar */
   .topnav a {
     float: left;
     display: block;
@@ -26,19 +25,16 @@ a:link {
     font-size: 20px;
   }
   
-  /* Change the color of links on hover */
   .topnav a:hover {
     color: black;
     background-color: rgba(32, 218, 63, 0.472);
   }
   
-  /* Add an active class to highlight the current page */
   .topnav a.active {
     color: black;
     background-color: rgba(32, 218, 63, 0.472);
   }
   
-  /* Hide the link that should open and close the topnav on small screens */
   .topnav .icon {
     display: none;
   }
@@ -51,7 +47,6 @@ a:link {
     }
   }
   
-  /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
   @media screen and (max-width: 600px) {
     .topnav.responsive {position: relative;}
     .topnav.responsive a.icon {
@@ -64,4 +59,33 @@ a:link {
       display: block;
       text-align: left;
     }
+  } */
+
+  .img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    //width: 1000px;
+    //height: 300px;
+    border-radius: 2px;
   }
+  
+  .responsive {
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    //height: auto;
+  }
+  
+.nav-item a:hover{
+  color: black;
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/toolbar%2Fhover.jpg?alt=media&token=b87d66a7-9f66-4b02-9bad-d57681e7e05e');
+  border-radius: 3px;
+}
+
+.nav-item a.active {
+  color: black;
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/toolbar%2Factive.jpg?alt=media&token=5c777b64-a644-41c6-b345-af09b70e8d67');
+  border-radius: 3px;
+}

@@ -11,15 +11,15 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="nombre">Producto *</label><br>
-                    <input class="form-control" disabled formControlName="nombre">
-                    <div *ngIf="getformControl('nombre').invalid && (getformControl('nombre').dirty || getformControl('nombre').touched)">
+                    <input class="form-control" readonly formControlName="nombre">
+                    <!-- <div *ngIf="getformControl('nombre').invalid && (getformControl('nombre').dirty || getformControl('nombre').touched)">
                         <div class="container-error-message" *ngIf="getformControl('nombre').errors.required">
                             Campo requerido
                         </div>
                         <div class="container-error-message" *ngIf="getformControl('nombre').errors.minlength">
                             El nombre debe tener al menos 5 caracteres
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="form-row">

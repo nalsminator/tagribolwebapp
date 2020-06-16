@@ -1,6 +1,6 @@
 <ngb-carousel [interval]="2700" [pauseOnHover]="false">
   <ng-template ngbSlide *ngFor="let slide of slides$ | async">
-    <img class="responsive" src="{{ slide.imgurl }}" alt="Random first slide">
+    <img class="img responsive" src="{{ slide.imgurl }}" alt="Random first slide">
     <div class="carousel-caption">
       <h3>{{ slide.titulo }}</h3>
       <p>{{ slide.descripcion }}</p>

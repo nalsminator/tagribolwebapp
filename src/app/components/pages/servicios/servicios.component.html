@@ -1,238 +1,235 @@
+<img class="img responsive" src="https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/solicitarservicio.png?alt=media&token=ea8ee1bd-dfc7-4176-a46c-e62dd30fecf0">
+<br>
 <div class="container">
-    <div class="row" style="margin: 5px;">
-        <img class="img responsive" src="https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/solicitarservicio.png?alt=media&token=ea8ee1bd-dfc7-4176-a46c-e62dd30fecf0">
-    </div>
-    <form [formGroup]="servForm" (ngSubmit)="guardarServicio(servForm.value)">
-    <!--DATOS EMPRESA-->
-        <div class="container border border-success rounded" style="margin: 5px;">
-            <div class="row"><br></div>
-            <h1>Datos de la Empresa</h1>
-            <div class="row"><br></div>
-            <div class="form-group row">
-                <div class="col-md-12">
-                    <label>Empresa *</label>
-                    <input formControlName="nombreempresa" type="text" class="form-control" placeholder="Nombre de la empresa">
-                    <div *ngIf="getformControl('nombreempresa').invalid && (getformControl('nombreempresa').dirty || getformControl('nombreempresa').touched)">
-                        <div class="container-error-message" *ngIf="getformControl('nombreempresa').errors.required">
-                            Campo requerido
-                        </div>
-                        <div class="container-error-message" *ngIf="getformControl('nombreempresa').errors.minlength">
-                            El nombre debe tener al menos 5 caracteres
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-9">
-                    <label>Contacto *</label>
-                    <input formControlName="nombrecontacto" type="text" class="form-control" placeholder="Nombre del contacto">
-                    <div *ngIf="getformControl('nombrecontacto').invalid && (getformControl('nombrecontacto').dirty || getformControl('nombrecontacto').touched)">
-                        <div class="container-error-message" *ngIf="getformControl('nombrecontacto').errors.required">
-                            Campo requerido
-                        </div>
-                        <div class="container-error-message" *ngIf="getformControl('nombrecontacto').errors.minlength">
-                            El nombre debe tener al menos 10 caracteres
-                        </div>
-                    </div>
-                </div>
-            <div class="col-md-3">
-                <label>Teléfono / Celular *</label>
-                <input formControlName="telefono" type="text" class="form-control">
-                <div *ngIf="getformControl('telefono').invalid && (getformControl('telefono').dirty || getformControl('telefono').touched)">
-                    <div class="container-error-message" *ngIf="getformControl('telefono').errors.required">
-                        Campo requerido
-                    </div>
-                    <div class="container-error-message" *ngIf="getformControl('telefono').errors.minlength">
-                        El teléfono dede tener al menos 7 números
-                    </div>
-                </div>
-            </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-12">
-                    <label>Correo electronico (e-mail)</label>
-                    <input formControlName="email" type="text" class="form-control" placeholder="Ejemplo: contacto@empresa.com">
-                    <div *ngIf="getformControl('email').invalid && (getformControl('email').dirty || getformControl('email').touched)">
-                        <div class="container-error-message" *ngIf="getformControl('email').errors.required">
-                            Campo requerido
-                        </div>
-                        <div class="container-error-message" *ngIf="getformControl('email').errors.minlength">
-                            El email no tiene un formato corecto
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--DATOS PRODUCTO-->
-        <div class="container border border-warning rounded" style="margin: 5px;">
-            <div class="row"><br></div>
-            <h1>Datos del Producto</h1>
-            <div class="row"><br></div>
-            <div class="form-group row">
-                <div class="col-md-6">
-                    <label>Producto *</label>
-                    <input formControlName="nombreproducto" type="text" class="form-control" placeholder="Nombre del producto">
-                    <div *ngIf="getformControl('nombreproducto').invalid && (getformControl('nombreproducto').dirty || getformControl('nombreproducto').touched)">
-                        <div class="container-error-message" *ngIf="getformControl('nombreproducto').errors.required">
-                            Campo requerido
-                        </div>
-                        <div class="container-error-message" *ngIf="getformControl('nombreproducto').errors.minlength">
-                            El nombre del producto debe tener al menos 5 caracteres
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <label>Grupo *</label>
-                    <input formControlName="grupo" type="text" class="form-control">
-                    <div *ngIf="getformControl('grupo').invalid && (getformControl('grupo').dirty || getformControl('grupo').touched)">
-                        <div class="container-error-message" *ngIf="getformControl('grupo').errors.required">
-                            Campo requerido
-                        </div>
-                        <div class="container-error-message" *ngIf="getformControl('grupo').errors.minlength">
-                            El grupo debe tener al menos 5 caracteres
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <label>Cantidad *</label>
-                    <input formControlName="cantidad" type="number" class="form-control">
-                    <div *ngIf="getformControl('cantidad').invalid && (getformControl('cantidad').dirty || getformControl('cantidad').touched)">
-                        <div class="container-error-message" *ngIf="getformControl('cantidad').errors.required">
-                            Campo requerido
-                        </div>
-                        <div class="container-error-message" *ngIf="getformControl('cantidad').errors.minlength">
-                            La cantidad debe ser solo números
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--COMBOS-->
-            <div class="form-group row">
-                <div class="col-md-3">
-                    <label>Unidad *</label>
-                    <select formControlName="unidad" (change)="cambioUnidad($event.target.value)" class="custom-select">
-                        <option value="" disabled>Elija una opción</option>
-                        <option *ngFor="let u of unidades">{{ u }}</option>
-                    </select>
-                    <div *ngIf="getformControl('unidad').invalid && (getformControl('unidad').dirty || getformControl('unidad').touched)">
-                        <div class="container-error-message" *ngIf="getformControl('unidad').errors.required">
-                            Seleccione una de las opciones
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <label>Tipo de trabajo *</label>
-                    <select formControlName="tipotrabajo" class="dropdown custom-select">
-                        <option value="" disabled>Elija una opción</option>
-                        <option *ngFor="let tt of tipotrabajoA">{{ tt }}</option>
-                    </select>
-                    <div *ngIf="getformControl('tipotrabajo').invalid && (getformControl('tipotrabajo').dirty || getformControl('tipotrabajo').touched)">
-                        <div class="container-error-message" *ngIf="getformControl('tipotrabajo').errors.required">
-                            Seleccione una de las opciones
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <label>Tipo de envase *</label>
-                    <select formControlName="tipoenvase" class="dropdown custom-select">
-                        <option value="" disabled>Elija una opción</option>
-                        <option *ngFor="let te of tipoenvaseA">{{ te }}</option>
-                    </select>
-                    <div *ngIf="getformControl('tipoenvase').invalid && (getformControl('tipoenvase').dirty || getformControl('tipoenvase').touched)">
-                        <div class="container-error-message" *ngIf="getformControl('tipoenvase').errors.required">
-                            Seleccione una de las opciones
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <label>Color *</label>
-                    <select formControlName="color" class="dropdown custom-select">
-                        <option value="" disabled>Elija una opción</option>
-                        <option *ngFor="let cc of colorA">{{ cc }}</option>
-                    </select>
-                    <div *ngIf="getformControl('color').invalid && (getformControl('color').dirty || getformControl('color').touched)">
-                        <div class="container-error-message" *ngIf="getformControl('color').errors.required">
-                            Seleccione una de las opciones
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-3">
-                    <label>Medida envase *</label>
-                    <div *ngIf="unidadseleccionada.length > 1" class="col-66">
-                        <select formControlName="medidaenvase" class="custom-select">
-                            <option value="" disabled>Elija una opción</option>
-                            <option *ngFor="let u of unidadseleccionada" > {{ u }}</option>
-                        </select>
-                        <div *ngIf="getformControl('medidaenvase').invalid && (getformControl('medidaenvase').dirty || getformControl('medidaenvase').touched)">
-                            <div class="container-error-message" *ngIf="getformControl('medidaenvase').errors.required">
-                                Seleccione una de las opciones
+    <div class="row">
+        <form [formGroup]="servForm" (ngSubmit)="guardarServicio(servForm.value)">
+            <!--DATOS EMPRESA-->
+                <div class="container border border-success rounded">
+                    <h1>Datos de la Empresa</h1>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <label>Empresa *</label>
+                            <input formControlName="nombreempresa" type="text" class="form-control" placeholder="Nombre de la empresa">
+                            <div *ngIf="getformControl('nombreempresa').invalid && (getformControl('nombreempresa').dirty || getformControl('nombreempresa').touched)">
+                                <div class="container-error-message" *ngIf="getformControl('nombreempresa').errors.required">
+                                    Campo requerido
+                                </div>
+                                <div class="container-error-message" *ngIf="getformControl('nombreempresa').errors.minlength">
+                                    El nombre debe tener al menos 5 caracteres
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <label>Color de caja *</label>
-                    <select formControlName="colorcaja" class="dropdown custom-select">
-                        <option value="" disabled>Elija una opción</option>
-                        <option *ngFor="let cj of colorcajaA">{{ cj }}</option>
-                    </select>
-                    <div *ngIf="getformControl('colorcaja').invalid && (getformControl('colorcaja').dirty || getformControl('colorcaja').touched)">
-                        <div class="container-error-message" *ngIf="getformControl('colorcaja').errors.required">
-                            Seleccione una de las opciones
+                    <div class="form-group row">
+                        <div class="col-md-9">
+                            <label>Contacto *</label>
+                            <input formControlName="nombrecontacto" type="text" class="form-control" placeholder="Nombre del contacto">
+                            <div *ngIf="getformControl('nombrecontacto').invalid && (getformControl('nombrecontacto').dirty || getformControl('nombrecontacto').touched)">
+                                <div class="container-error-message" *ngIf="getformControl('nombrecontacto').errors.required">
+                                    Campo requerido
+                                </div>
+                                <div class="container-error-message" *ngIf="getformControl('nombrecontacto').errors.minlength">
+                                    El nombre debe tener al menos 10 caracteres
+                                </div>
+                            </div>
+                        </div>
+                    <div class="col-md-3">
+                        <label>Teléfono / Celular *</label>
+                        <input formControlName="telefono" type="text" class="form-control">
+                        <div *ngIf="getformControl('telefono').invalid && (getformControl('telefono').dirty || getformControl('telefono').touched)">
+                            <div class="container-error-message" *ngIf="getformControl('telefono').errors.required">
+                                Campo requerido
+                            </div>
+                            <div class="container-error-message" *ngIf="getformControl('telefono').errors.minlength">
+                                El teléfono dede tener al menos 7 números
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!--INFO ADICIONAL-->
-            <div class="form-group row">
-                <div class="col-md-4">
-                    <label>Nº de lote *</label>
-                    <input formControlName="ndelote" type="text" class="form-control">
-                    <div *ngIf="getformControl('ndelote').invalid && (getformControl('ndelote').dirty || getformControl('ndelote').touched)">
-                        <div class="container-error-message" *ngIf="getformControl('ndelote').errors.required">
-                            Campo requerido
-                        </div>
-                        <div class="container-error-message" *ngIf="getformControl('ndelote').errors.minlength">
-                            La cantidad debe ser solo números
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <label>Correo electronico (e-mail)</label>
+                            <input formControlName="email" type="text" class="form-control" placeholder="Ejemplo: contacto@empresa.com">
+                            <div *ngIf="getformControl('email').invalid && (getformControl('email').dirty || getformControl('email').touched)">
+                                <div class="container-error-message" *ngIf="getformControl('email').errors.required">
+                                    Campo requerido
+                                </div>
+                                <div class="container-error-message" *ngIf="getformControl('email').errors.minlength">
+                                    El email no tiene un formato corecto
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <label>Fecha de fabricación *</label>
-                    <input formControlName="fechafabricacion" type="date" class="form-control">
-                    <div *ngIf="getformControl('fechafabricacion').invalid && (getformControl('fechafabricacion').dirty || getformControl('fechafabricacion').touched)">
-                        <div class="container-error-message" *ngIf="getformControl('fechafabricacion').errors.required">
-                            Seleccione una fecha de fabricación
+                </div><br>
+                <!--DATOS PRODUCTO-->
+                <div class="container border border-warning rounded">
+                    <h1>Datos del Producto</h1>
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <label>Producto *</label>
+                            <input formControlName="nombreproducto" type="text" class="form-control" placeholder="Nombre del producto">
+                            <div *ngIf="getformControl('nombreproducto').invalid && (getformControl('nombreproducto').dirty || getformControl('nombreproducto').touched)">
+                                <div class="container-error-message" *ngIf="getformControl('nombreproducto').errors.required">
+                                    Campo requerido
+                                </div>
+                                <div class="container-error-message" *ngIf="getformControl('nombreproducto').errors.minlength">
+                                    El nombre del producto debe tener al menos 5 caracteres
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Grupo *</label>
+                            <input formControlName="grupo" type="text" class="form-control">
+                            <div *ngIf="getformControl('grupo').invalid && (getformControl('grupo').dirty || getformControl('grupo').touched)">
+                                <div class="container-error-message" *ngIf="getformControl('grupo').errors.required">
+                                    Campo requerido
+                                </div>
+                                <div class="container-error-message" *ngIf="getformControl('grupo').errors.minlength">
+                                    El grupo debe tener al menos 5 caracteres
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label>Cantidad *</label>
+                            <input formControlName="cantidad" type="number" class="form-control">
+                            <div *ngIf="getformControl('cantidad').invalid && (getformControl('cantidad').dirty || getformControl('cantidad').touched)">
+                                <div class="container-error-message" *ngIf="getformControl('cantidad').errors.required">
+                                    Campo requerido
+                                </div>
+                                <div class="container-error-message" *ngIf="getformControl('cantidad').errors.minlength">
+                                    La cantidad debe ser solo números
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <label>Fecha de vencimiento *</label>
-                    <input formControlName="fechavencimiento" type="date" class="form-control">
-                    <div *ngIf="getformControl('fechavencimiento').invalid && (getformControl('fechavencimiento').dirty || getformControl('fechavencimiento').touched)">
-                        <div class="container-error-message" *ngIf="getformControl('fechavencimiento').errors.required">
-                            Seleccione una fecha de vencimiento
+                    <!--COMBOS-->
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label>Unidad *</label>
+                            <select formControlName="unidad" (change)="cambioUnidad($event.target.value)" class="custom-select">
+                                <option value="" disabled>Elija una opción</option>
+                                <option *ngFor="let u of unidades">{{ u }}</option>
+                            </select>
+                            <div *ngIf="getformControl('unidad').invalid && (getformControl('unidad').dirty || getformControl('unidad').touched)">
+                                <div class="container-error-message" *ngIf="getformControl('unidad').errors.required">
+                                    Seleccione una de las opciones
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Tipo de trabajo *</label>
+                            <select formControlName="tipotrabajo" class="dropdown custom-select">
+                                <option value="" disabled>Elija una opción</option>
+                                <option *ngFor="let tt of tipotrabajoA">{{ tt }}</option>
+                            </select>
+                            <div *ngIf="getformControl('tipotrabajo').invalid && (getformControl('tipotrabajo').dirty || getformControl('tipotrabajo').touched)">
+                                <div class="container-error-message" *ngIf="getformControl('tipotrabajo').errors.required">
+                                    Seleccione una de las opciones
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Tipo de envase *</label>
+                            <select formControlName="tipoenvase" class="dropdown custom-select">
+                                <option value="" disabled>Elija una opción</option>
+                                <option *ngFor="let te of tipoenvaseA">{{ te }}</option>
+                            </select>
+                            <div *ngIf="getformControl('tipoenvase').invalid && (getformControl('tipoenvase').dirty || getformControl('tipoenvase').touched)">
+                                <div class="container-error-message" *ngIf="getformControl('tipoenvase').errors.required">
+                                    Seleccione una de las opciones
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Color *</label>
+                            <select formControlName="color" class="dropdown custom-select">
+                                <option value="" disabled>Elija una opción</option>
+                                <option *ngFor="let cc of colorA">{{ cc }}</option>
+                            </select>
+                            <div *ngIf="getformControl('color').invalid && (getformControl('color').dirty || getformControl('color').touched)">
+                                <div class="container-error-message" *ngIf="getformControl('color').errors.required">
+                                    Seleccione una de las opciones
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <br>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label>Medida envase *</label>
+                            <div *ngIf="unidadseleccionada.length > 1" class="col-66">
+                                <select formControlName="medidaenvase" class="custom-select">
+                                    <option value="" disabled>Elija una opción</option>
+                                    <option *ngFor="let u of unidadseleccionada" > {{ u }}</option>
+                                </select>
+                                <div *ngIf="getformControl('medidaenvase').invalid && (getformControl('medidaenvase').dirty || getformControl('medidaenvase').touched)">
+                                    <div class="container-error-message" *ngIf="getformControl('medidaenvase').errors.required">
+                                        Seleccione una de las opciones
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Color de caja *</label>
+                            <select formControlName="colorcaja" class="dropdown custom-select">
+                                <option value="" disabled>Elija una opción</option>
+                                <option *ngFor="let cj of colorcajaA">{{ cj }}</option>
+                            </select>
+                            <div *ngIf="getformControl('colorcaja').invalid && (getformControl('colorcaja').dirty || getformControl('colorcaja').touched)">
+                                <div class="container-error-message" *ngIf="getformControl('colorcaja').errors.required">
+                                    Seleccione una de las opciones
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--INFO ADICIONAL-->
+                    <div class="form-group row">
+                        <div class="col-md-4">
+                            <label>Nº de lote *</label>
+                            <input formControlName="ndelote" type="text" class="form-control">
+                            <div *ngIf="getformControl('ndelote').invalid && (getformControl('ndelote').dirty || getformControl('ndelote').touched)">
+                                <div class="container-error-message" *ngIf="getformControl('ndelote').errors.required">
+                                    Campo requerido
+                                </div>
+                                <div class="container-error-message" *ngIf="getformControl('ndelote').errors.minlength">
+                                    La cantidad debe ser solo números
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Fecha de fabricación *</label>
+                            <input formControlName="fechafabricacion" type="date" class="form-control">
+                            <div *ngIf="getformControl('fechafabricacion').invalid && (getformControl('fechafabricacion').dirty || getformControl('fechafabricacion').touched)">
+                                <div class="container-error-message" *ngIf="getformControl('fechafabricacion').errors.required">
+                                    Seleccione una fecha de fabricación
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Fecha de vencimiento *</label>
+                            <input formControlName="fechavencimiento" type="date" class="form-control">
+                            <div *ngIf="getformControl('fechavencimiento').invalid && (getformControl('fechavencimiento').dirty || getformControl('fechavencimiento').touched)">
+                                <div class="container-error-message" *ngIf="getformControl('fechavencimiento').errors.required">
+                                    Seleccione una fecha de vencimiento
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                        <div class="col-md-12">
+                            <label>Otras indicaciones</label>
+                            <input type="text" formControlName="otros" class="form-control">
+                          </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <button class="btn btn-success" type="submit" >Enviar solicitud de servicio</button> 
+                            &nbsp;&nbsp;&nbsp;&nbsp; 
+                            <button type="button" class="btn btn-danger" (click)="salir()">Cancelar</button>
+                        </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2"> (*) Campos requeridos</div>
+                    </div>
                 </div>
-                <div class="col-md-12">
-                    <label>Otras indicaciones</label>
-                    <input type="text" formControlName="otros" class="form-control">
-                  </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-6">
-                    <button class="btn btn-success" type="submit" >Enviar solicitud de servicio</button> 
-                    &nbsp;&nbsp;&nbsp;&nbsp; 
-                    <button type="button" class="btn btn-danger" (click)="salir()">Cancelar</button>
-                </div>
-                <div class="col-md-2"></div>
-                <div class="col-md-2"></div>
-                <div class="col-md-2"> (*) Campos requeridos</div>
-            </div>
-        </div>
-    </form>
+            </form>
+    </div>
 </div>
