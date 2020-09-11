@@ -3,13 +3,13 @@
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
-  }
+}
 
 .alert-danger {
-color: #721c24;
-background: #f8d7da;
-border-color: #f5c6cb;
-margin-bottom: 5px;
+	color: #721c24;
+	background: #f8d7da;
+	border-color: #f5c6cb;
+	margin-bottom: 5px;
 }
 
 .container-error-message {
@@ -24,12 +24,17 @@ color: red;
 	width: auto;
 	//height: 250px;
 	border-radius: 2px;
-  }
-  
-  .responsive {
+}
+
+.responsive {
 	width: 100%;
 	height: auto;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-  }
+}
+
+.bkgr {
+	background-color: #feffde;
+	background-image: url("https://firebasestorage.googleapis.com/v0/b/tagribolwebapp-7b913.appspot.com/o/embossed-paper.png?alt=media&token=6e49bdca-5753-4805-85d0-ccaf0aace0a3");
+}
