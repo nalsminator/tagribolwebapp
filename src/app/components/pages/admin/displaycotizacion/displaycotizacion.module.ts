@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
@@ -7,6 +7,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
   imports: [
     CommonModule,
     MatFormFieldModule
-  ]
+  ],
+  providers: [DatePipe]
 })
 export class DisplaycotizacionModule { }

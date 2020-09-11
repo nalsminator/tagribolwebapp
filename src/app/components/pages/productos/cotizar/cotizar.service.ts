@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { map, finalize } from 'rxjs/operators';
-import { AngularFireStorage } from '@angular/fire/storage';
+import { map } from 'rxjs/operators';
 
 import { CotizacionI } from "src/app/shared/models/cotizacion.interface";
 

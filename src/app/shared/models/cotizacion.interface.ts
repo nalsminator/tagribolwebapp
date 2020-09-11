@@ -1,5 +1,5 @@
 export interface CotizacionI{
-    fecha: Date;
+    fecha: any;
     nombre: string;
     envasedesc: string;
     cantidad: number;

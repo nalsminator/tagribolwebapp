@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SlideshowComponent } from './shared/components/slideshow/slideshow.component';
 import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
 import { ContainerAppComponent } from './components/pages/container-app/container-app.component';
 import { CotizarComponent } from "./components/pages/productos/cotizar/cotizar.component";
@@ -34,11 +33,18 @@ import { DisplayservicioComponent } from "src/app/components/pages/admin/display
 import { ModalcotizarComponent } from './shared/components/modalcotizar/modalcotizar.component';
 import { ModalservicioComponent } from './shared/components/modalservicio/modalservicio.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { EnvasesComponent } from './components/pages/envases/envases.component';
+
+import { PdfMakeWrapper } from 'pdfmake-wrapper';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+import { DatePipe } from '@angular/common';
+ 
+// Set the fonts to use
+PdfMakeWrapper.setFonts(pdfFonts);
 
 @NgModule({
   declarations: [
     AppComponent,
-    SlideshowComponent,
     ToolbarComponent,
     ContainerAppComponent,
     ModalComponent,
@@ -47,7 +53,8 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     DisplaycotizacionComponent,
     ModalservicioComponent,
     DisplayservicioComponent,
-    FooterComponent
+    FooterComponent,
+    EnvasesComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -67,7 +74,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     AngularFireAuthModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
   exports: [NgbModule],
   entryComponents: [ModalComponent, ModalcotizarComponent, ModalservicioComponent]

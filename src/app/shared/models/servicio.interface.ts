@@ -1,5 +1,5 @@
 export interface ServicioI{
-    fecha: Date,
+    fecha: any,
     nombreempresa: string,
     nombrecontacto: string,
     telefono: string,

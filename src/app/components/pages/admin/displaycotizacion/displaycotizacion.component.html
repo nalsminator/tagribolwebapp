@@ -1,14 +1,14 @@
 <div class="container">
     <form class="border-class" [formGroup]="cotProdForm">
         <div class="form-row">
-            <div class="form-group col-md-12">
-                <div class="card-header">
-                    <h1 class="card-tittle">Solicitud de cotización</h1>
-                </div>
-            </div>
+            <h1>Solicitud de cotización</h1>
         </div>
         <div class="card-body">
             <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label>Fecha</label><br>
+                    <input class="form-control" disabled formControlName="fecha">
+                </div>
                 <div class="form-group col-md-12">
                     <label>Producto</label><br>
                     <input class="form-control" disabled formControlName="nombre">
@@ -50,6 +50,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <button mat-raised-button matDialogClose type="button" class="btn btn-primary" value="Cerrar">Cerrar</button>
+                    <button mat-raised-button type="button" class="btn btn-info" (click)="GenerarPDF()">Impirmir (PDF)</button>
                 </div>
             </div>
         </div>

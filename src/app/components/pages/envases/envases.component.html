@@ -1,0 +1,24 @@
+<div *ngFor="let envase of envases$ | async">
+  <div class="row-fluid">
+    <div class="card border-primary mb-3">
+      <div class="card-header">
+        <h1>{{ envase.nombre }}</h1>
+      </div>
+      <div class="row ">
+        <div class="col-md-5">
+          <img class="card-img-top" src="{{ envase.imgurl }}">
+        </div>
+        <div class="col-md-7">
+          <div class="card-block">
+            <p class="card-text"></p>
+            <p class="bold">Medidas: </p>
+            <p class="card-text">Medidas: {{ envase.medidas }}</p>
+            <p class="card-text">Color: {{ envase.color }}</p>
+            <p class="card-text">Descripción: <br>{{ envase.desc }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
